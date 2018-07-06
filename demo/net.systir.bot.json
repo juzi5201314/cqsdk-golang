@@ -1,0 +1,29 @@
+{
+  "ret": 1,
+  "appid": "cn.you.test",
+  "name": "test",
+  "apiver": 9,
+  "version": "0.0.1",
+  "version_id": 1,
+  "author": "you",
+  "description": "emmm",
+  "event": [
+    {
+      "id": 1,
+      "type": 21,
+      "name": "监听私聊消息",
+      "function": "OnPrivateMessage",
+      "priority": 40000
+    },
+    {
+      "id":2,
+      "type":1003,
+      "name":"监听插件启动",
+      "priority": 30000,
+      "function": "OnEnable"
+    }
+  ],
+  "auth": [
+    106
+  ]
+}
