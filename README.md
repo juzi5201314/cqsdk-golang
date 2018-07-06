@@ -15,7 +15,7 @@
 >前往[下载](http://tdm-gcc.tdragon.net/download)tmd-gcc 32位版，并安装。  
 >解压go源码，如当前环境本来就存在64位的go环境，可以如我这样将32位的解压在比如C:\Go32。  
 >将tmd-gcc安装目录(一般是在C:\TMD-GCC-32)添加到环境变量。  
-1，打开命令行，cd到插件源码目录(以[demo](github.com/juzi5201314/cqsdk-golang/demo)为例)。  
+1，打开命令行，cd到插件源码目录(以[demo](https://github.com/juzi5201314/cqsdk-golang/demo)为例)。  
 2，执行
 ```shell
 > C:\Go32\bin\go.exe build -buildmode=c-shared -o cn.you.test.dll
