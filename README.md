@@ -11,13 +11,13 @@
 ```
 由于酷q插件必须是x86的，而cgo不支持跨平台编译。  
 所以如果编译环境并非windows x86，请看下面，否则跳过此段。  
->前往go官网或者go中文网下载go的32位源码包(编译环境是什么系统就下什么系统的，这里以编译环境是windows10 x64的为例)。  
+>前往go官网或者go中文网下载go的weindows 32位源码包(编译环境是什么系统就下什么系统的，这里以编译环境是windows10 x64的为例)。  
 
 >前往[下载](http://tdm-gcc.tdragon.net/download)tmd-gcc 32位版，并安装。 
 
 >解压go源码，如当前环境本来就存在64位的go环境，可以如我这样将32位的解压在比如C:\Go32。  
 
->将tmd-gcc安装目录(一般是在C:\TMD-GCC-32)添加到环境变量。  
+>将tmd-gcc安装目录(一般是在C:\TMD-GCC-32)添加到环境变量(其他系统同理，下载个32位的gcc)。  
 
 1，打开命令行，cd到插件源码目录(以[demo](https://github.com/juzi5201314/cqsdk-golang/tree/master/demo)为例)。  
 2，执行
