@@ -25,122 +25,122 @@ const (
 	CQLOG_FATAL         = 40       //致命错误 深红
 )
 
-var AUTOCODE C.int32_t
+var AUTHCODE C.int32_t
 
-func SetAutoCode(c int32)  {
-	AUTOCODE = C.int32_t(c)
+func SetAuthCode(c int32)  {
+	AUTHCODE = C.int32_t(c)
 }
 
 func AddLog(p int32, h string, msg string) int32 {
-	return int32(C.CQ_addLog(AUTOCODE, C.int32_t(p), gbk(h), gbk(msg)))
+	return int32(C.CQ_addLog(AUTHCODE, C.int32_t(p), gb18030(h), gb18030(msg)))
 }
 
 func SendPrivateMsg(from_qq int64, message string) int32 {
-	return int32(C.CQ_sendPrivateMsg(AUTOCODE, C.int64_t(from_qq), gbk(message)))
+	return int32(C.CQ_sendPrivateMsg(AUTHCODE, C.int64_t(from_qq), gb18030(message)))
 }
 
 func SendGroupMsg(group_id int64, message string) int32 {
-	return int32(C.CQ_sendGroupMsg(AUTOCODE, C.int64_t(group_id), gbk(message)))
+	return int32(C.CQ_sendGroupMsg(AUTHCODE, C.int64_t(group_id), gb18030(message)))
 }
 
 func SendDiscussMsg(discuss_id int64, message string) int32 {
-	return int32(C.CQ_sendDiscussMsg(AUTOCODE, C.int64_t(discuss_id), gbk(message)))
+	return int32(C.CQ_sendDiscussMsg(AUTHCODE, C.int64_t(discuss_id), gb18030(message)))
 }
 
 func DeleteMsg(message_id int64) int32 {
-	return int32(C.CQ_deleteMsg(AUTOCODE, C.int64_t(message_id)))
+	return int32(C.CQ_deleteMsg(AUTHCODE, C.int64_t(message_id)))
 }
 
 func SendLike(qq int64) int32 {
-	return int32(C.CQ_sendLike(AUTOCODE, qq))
+	return int32(C.CQ_sendLike(AUTHCODE, qq))
 }
 
 func SetGroupKick(group_id int64, qq int64, rejectaddrequest bool) int32 {
-	return int32(C.CQ_setGroupKick(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(rejectaddrequest))))
+	return int32(C.CQ_setGroupKick(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(rejectaddrequest))))
 }
 
 func SetGroupBan(group_id int64, qq int64, duration int64) int32 {
-	return int32(C.CQ_setGroupBan(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.int64_t(duration)))
+	return int32(C.CQ_setGroupBan(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.int64_t(duration)))
 }
 
 func SetGroupAdmin(group_id int64, qq int64, isadmin bool) int32 {
-	return int32(C.CQ_setGroupAdmin(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(isadmin))))
+	return int32(C.CQ_setGroupAdmin(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(isadmin))))
 }
 
 func SetGroupWholeBan(group_id int64, enableban bool) int32 {
-	return int32(C.CQ_setGroupWholeBan(AUTOCODE, C.int64_t(group_id), C.int32_t(boolToInt32(enableban))))
+	return int32(C.CQ_setGroupWholeBan(AUTHCODE, C.int64_t(group_id), C.int32_t(boolToInt32(enableban))))
 }
 
 func SetGroupAnonymousBan(group_id int64, anomymous string, duration int64) int32 {
-	return int32(C.CQ_setGroupAnonymousBan(AUTOCODE, C.int64_t(group_id), C.CString(anomymous), C.int64_t(duration)))
+	return int32(C.CQ_setGroupAnonymousBan(AUTHCODE, C.int64_t(group_id), C.CString(anomymous), C.int64_t(duration)))
 }
 
 func SetGroupAnonymous(group_id int64, enableanomymous bool) int32 {
-	return int32(C.CQ_setGroupAnonymous(AUTOCODE, C.int64_t(group_id), C.int32_t(boolToInt32(enableanomymous))))
+	return int32(C.CQ_setGroupAnonymous(AUTHCODE, C.int64_t(group_id), C.int32_t(boolToInt32(enableanomymous))))
 }
 
 func SetGroupCard(group_id int64, qq int64, newcard string) int32 {
-	return int32(C.CQ_setGroupCard(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(newcard)))
+	return int32(C.CQ_setGroupCard(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(newcard)))
 }
 
 func SetGroupLeave(group_id int64, isdismiss bool) int32 {
-	return int32(C.CQ_setGroupLeave(AUTOCODE, C.int64_t(group_id), C.int32_t(boolToInt32(isdismiss))))
+	return int32(C.CQ_setGroupLeave(AUTHCODE, C.int64_t(group_id), C.int32_t(boolToInt32(isdismiss))))
 }
 
 func SetGroupSpecialTitle(group_id int64, qq int64, title string, duration int64) int32 {
-	return int32(C.CQ_setGroupSpecialTitle(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(title), C.int64_t(duration)))
+	return int32(C.CQ_setGroupSpecialTitle(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(title), C.int64_t(duration)))
 }
 
 func SetDiscussLeave(discuss_id int64) int32 {
-	return int32(C.CQ_setDiscussLeave(AUTOCODE, C.int64_t(discuss_id)))
+	return int32(C.CQ_setDiscussLeave(AUTHCODE, C.int64_t(discuss_id)))
 }
 
 func SetFriendAddRequest(responseflag string, responseoperation int32, remark string) int32 {
-	return int32(C.CQ_setFriendAddRequest(AUTOCODE, C.CString(responseflag), C.int32_t(responseoperation), C.CString(remark)))
+	return int32(C.CQ_setFriendAddRequest(AUTHCODE, C.CString(responseflag), C.int32_t(responseoperation), C.CString(remark)))
 }
 
 func SetGroupAddRequest(responseflag string, requesttype int32, responseoperation int32, reason string) int32 {
-	return int32(C.CQ_setGroupAddRequestV2(AUTOCODE, C.CString(responseflag),  C.int32_t(requesttype),  C.int32_t(responseoperation), C.CString(reason)))
+	return int32(C.CQ_setGroupAddRequestV2(AUTHCODE, C.CString(responseflag),  C.int32_t(requesttype),  C.int32_t(responseoperation), C.CString(reason)))
 }
 
 func GetGroupMemberInfo(group_id int64, qq int64 , oncache bool) string {
-	return C.GoString(C.CQ_getGroupMemberInfoV2(AUTOCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(oncache))))
+	return C.GoString(C.CQ_getGroupMemberInfoV2(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.int32_t(boolToInt32(oncache))))
 }
 
 func GetStrangerInfo(qq int64 , oncache bool) string {
-	return C.GoString(C.CQ_getStrangerInfo(AUTOCODE, C.int64_t(qq), C.int32_t(boolToInt32(oncache))))
+	return C.GoString(C.CQ_getStrangerInfo(AUTHCODE, C.int64_t(qq), C.int32_t(boolToInt32(oncache))))
 }
 
 func GetCookies() string {
-	return C.GoString(C.CQ_getCookies(AUTOCODE))
+	return C.GoString(C.CQ_getCookies(AUTHCODE))
 }
 
 func GetCsrfToken() int32 {
-	return int32(C.CQ_getCsrfToken(AUTOCODE))
+	return int32(C.CQ_getCsrfToken(AUTHCODE))
 }
 
 func GetLoginQQ() int64 {
-	return int64(C.CQ_getLoginQQ(AUTOCODE))
+	return int64(C.CQ_getLoginQQ(AUTHCODE))
 }
 
 func GetLoginNick() string {
-	return C.GoString(C.GoString(C.CQ_getLoginNick(AUTOCODE)))
+	return C.GoString(C.GoString(C.CQ_getLoginNick(AUTHCODE)))
 }
 
 func GetAppDirectory() string {
-	return C.GoString(C.GoString(C.CQ_getAppDirectory(AUTOCODE)))
+	return C.GoString(C.GoString(C.CQ_getAppDirectory(AUTHCODE)))
 }
 
 func SetFatal(message string) int32 {
-	return int32(C.CQ_setFatal(AUTOCODE, C.CString(message)))
+	return int32(C.CQ_setFatal(AUTHCODE, C.CString(message)))
 }
 
 func CQ_getRecord(file string, outformat string) string {
-	return C.GoString(AUTOCODE, C.CString(file), C.CString(outformat))
+	return C.GoString(AUTHCODE, C.CString(file), C.CString(outformat))
 }
 
-func gbk(c string) *C.char {
-	return C.CString(mahonia.NewEncoder("gbk").ConvertString(c))
+func gb18030(c string) *C.char {
+	return C.CString(mahonia.NewEncoder("gb18030").ConvertString(c))
 }
 
 func boolToInt32(b bool) int32 {
