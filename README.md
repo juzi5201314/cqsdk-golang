@@ -17,7 +17,7 @@
 
 >解压go源码，如当前环境本来就存在64位的go环境，可以如我这样将32位的解压在比如C:\Go32。  
 
->将tmd-gcc安装目录(一般是在C:\TMD-GCC-32)添加到环境变量。  
+>将tmd-gcc安装目录(一般是在C:\TMD-GCC-32)添加到环境变量(其他系统同理，下载个32位的gcc)。  
 
 1，打开命令行，cd到插件源码目录(以[demo](https://github.com/juzi5201314/cqsdk-golang/tree/master/demo)为例)。  
 2，执行
