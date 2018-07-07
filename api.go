@@ -52,7 +52,7 @@ func DeleteMsg(message_id int64) int32 {
 }
 
 func SendLike(qq int64) int32 {
-	return int32(C.CQ_sendLike(AUTHCODE, qq))
+	return int32(C.CQ_sendLike(AUTHCODE, C.int64_t(qq)))
 }
 
 func SetGroupKick(group_id int64, qq int64, rejectaddrequest bool) int32 {
@@ -124,19 +124,19 @@ func GetLoginQQ() int64 {
 }
 
 func GetLoginNick() string {
-	return C.GoString(C.GoString(C.CQ_getLoginNick(AUTHCODE)))
+	return C.GoString(C.CQ_getLoginNick(AUTHCODE))
 }
 
 func GetAppDirectory() string {
-	return C.GoString(C.GoString(C.CQ_getAppDirectory(AUTHCODE)))
+	return C.GoString(C.CQ_getAppDirectory(AUTHCODE))
 }
 
 func SetFatal(message string) int32 {
 	return int32(C.CQ_setFatal(AUTHCODE, gb18030(message)))
 }
 
-func CQ_getRecord(file string, outformat string) string {
-	return C.GoString(AUTHCODE, gb18030(file), gb18030(outformat))
+func GetRecord(file string, outformat string) string {
+	return C.GoString(C.CQ_getRecord(AUTHCODE, gb18030(file), gb18030(outformat)))
 }
 
 func gb18030(c string) *C.char {
