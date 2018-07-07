@@ -25,7 +25,7 @@ func OnEnable() int32 {
 
 //export OnPrivateMessage
 func OnPrivateMessage(sub_type int32, message_id int32, from_qq int64, msg *C.char, font int32) int32 {
-	cqsdk_golang.SendPrivateMsg(from_qq, "收到了消息: " + C.GoString(msg))
+	cqsdk_golang.SendPrivateMsg(from_qq, "收到了消息: " + cqsdk_golang.Utf8(C.GoString(msg)))
 	return cqsdk_golang.EVENT_IGNORE
 }
 
