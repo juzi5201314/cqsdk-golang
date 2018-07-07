@@ -12,7 +12,7 @@ func AppInfo() *C.char {
 
 //export Initialize
 func Initialize(autocode int32) int32 {
-	cqsdk_golang.SetAutoCode(autocode)
+	cqsdk_golang.SetAuthCode(autocode)
 	return cqsdk_golang.EVENT_IGNORE
 }
 
