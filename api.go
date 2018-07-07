@@ -72,7 +72,7 @@ func SetGroupWholeBan(group_id int64, enableban bool) int32 {
 }
 
 func SetGroupAnonymousBan(group_id int64, anomymous string, duration int64) int32 {
-	return int32(C.CQ_setGroupAnonymousBan(AUTHCODE, C.int64_t(group_id), C.CString(anomymous), C.int64_t(duration)))
+	return int32(C.CQ_setGroupAnonymousBan(AUTHCODE, C.int64_t(group_id), gb18030(anomymous), C.int64_t(duration)))
 }
 
 func SetGroupAnonymous(group_id int64, enableanomymous bool) int32 {
@@ -80,7 +80,7 @@ func SetGroupAnonymous(group_id int64, enableanomymous bool) int32 {
 }
 
 func SetGroupCard(group_id int64, qq int64, newcard string) int32 {
-	return int32(C.CQ_setGroupCard(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(newcard)))
+	return int32(C.CQ_setGroupCard(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), gb18030(newcard)))
 }
 
 func SetGroupLeave(group_id int64, isdismiss bool) int32 {
@@ -88,7 +88,7 @@ func SetGroupLeave(group_id int64, isdismiss bool) int32 {
 }
 
 func SetGroupSpecialTitle(group_id int64, qq int64, title string, duration int64) int32 {
-	return int32(C.CQ_setGroupSpecialTitle(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), C.CString(title), C.int64_t(duration)))
+	return int32(C.CQ_setGroupSpecialTitle(AUTHCODE, C.int64_t(group_id), C.int64_t(qq), gb18030(title), C.int64_t(duration)))
 }
 
 func SetDiscussLeave(discuss_id int64) int32 {
@@ -96,11 +96,11 @@ func SetDiscussLeave(discuss_id int64) int32 {
 }
 
 func SetFriendAddRequest(responseflag string, responseoperation int32, remark string) int32 {
-	return int32(C.CQ_setFriendAddRequest(AUTHCODE, C.CString(responseflag), C.int32_t(responseoperation), C.CString(remark)))
+	return int32(C.CQ_setFriendAddRequest(AUTHCODE, gb18030(responseflag), C.int32_t(responseoperation), gb18030(remark)))
 }
 
 func SetGroupAddRequest(responseflag string, requesttype int32, responseoperation int32, reason string) int32 {
-	return int32(C.CQ_setGroupAddRequestV2(AUTHCODE, C.CString(responseflag),  C.int32_t(requesttype),  C.int32_t(responseoperation), C.CString(reason)))
+	return int32(C.CQ_setGroupAddRequestV2(AUTHCODE, gb18030(responseflag),  C.int32_t(requesttype),  C.int32_t(responseoperation), gb18030(reason)))
 }
 
 func GetGroupMemberInfo(group_id int64, qq int64 , oncache bool) string {
@@ -132,11 +132,11 @@ func GetAppDirectory() string {
 }
 
 func SetFatal(message string) int32 {
-	return int32(C.CQ_setFatal(AUTHCODE, C.CString(message)))
+	return int32(C.CQ_setFatal(AUTHCODE, gb18030(message)))
 }
 
 func CQ_getRecord(file string, outformat string) string {
-	return C.GoString(AUTHCODE, C.CString(file), C.CString(outformat))
+	return C.GoString(AUTHCODE, gb18030(file), gb18030(outformat))
 }
 
 func gb18030(c string) *C.char {
