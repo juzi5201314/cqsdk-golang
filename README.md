@@ -25,3 +25,12 @@
 > C:\Go32\bin\go.exe build -buildmode=c-shared -o cn.you.test.dll
 ```
 3, 将cn.you.test.dll动态库与cn.you.test.json放到酷q的app目录，打包，完成。
+
+# sdk
+提供  
+cqsdk-golang.Gb18030(utf8 string) string  
+此方法将utf8编码的字符串转换成酷q需要的gb18030编码。sdk内置api已自动转换，调用api时直接填入utf8字符串即可，此方法使用较少。  
+
+cqsdk-golang.Utf8(gb18030 string) string 
+此方法将gb18030编码的字符串解码成utf8编码的字符串。由于酷q事件传入的是gb18030编码的，所以接收const char \*的时候除了使用C.GoString来将C类型转换成go的字符串之后，还需要gb18030解码.  
+具体操作请看[demo](https://github.com/juzi5201314/cqsdk-golang/tree/master/demo)
